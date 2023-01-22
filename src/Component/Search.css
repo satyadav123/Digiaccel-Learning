@@ -1,0 +1,28 @@
+.Search-render{
+   
+    width: 100%;
+    display: grid;
+    text-align: center;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+}
+.Search-render > img{
+   
+    width: 10%;
+  
+}
+@media screen and(max-width:900px) {
+    .Search-render{
+   
+        width: 100%;
+        display: grid ;
+        text-align: center;
+        grid-template-columns:100%;
+        grid-template-rows:auto;
+    } 
+    .Search-render > img{
+   
+        width: 5%;
+      
+    }
+}
