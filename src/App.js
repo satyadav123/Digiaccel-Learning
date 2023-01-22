@@ -20,6 +20,9 @@ function App() {
         <Route path="/singlemovie/:id" 
         element={<Singlemovie />}>
         </Route>
+        <Route path="/search/singlemovie/:id" 
+        element={<Singlemovie />}>
+        </Route>
       </Routes>
  
     </div>

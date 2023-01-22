@@ -1,4 +1,5 @@
 import {useEffect,useContext,useState}from "react";
+import { Link } from "react-router-dom";
 import { CreateContext } from '../Context/CardContext.jsx';
 import './Search.css'
 export const SearchMovies=(()=>{
@@ -8,7 +9,7 @@ const {setcard}=useContext(CreateContext);
 const Datarender=async()=>{
    
     try{
-        let api = `http://api.tvmaze.com/search/shows?q=${setcard}`;
+        let api = `https://api.tvmaze.com/search/shows?q=${setcard}`;
         let res = await fetch(api);
         let data = await res.json();
          updaterender(data)
@@ -31,6 +32,7 @@ useEffect(() => {
            
                {
                     setrender?.map((e, ind) => ( 
+                        <Link className="link1" to={`Singlemovie/${e.show.id}`}>
 
                         <div >
                             <div>
@@ -38,6 +40,7 @@ useEffect(() => {
                             </div>
                                
                         </div>
+                        </Link>
                     ))
                 }
         </div>

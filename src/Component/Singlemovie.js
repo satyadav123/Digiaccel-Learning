@@ -46,7 +46,7 @@ export const Singlemovie=(()=>{
                             </div>
                              <div>
                              <h3>Title: {Searchsingle?.name}</h3><br/>
-                             <h4>Date: {Searchsingle?.premiered}</h4><br/>
+                             <h4>Year: {new Date(Searchsingle?.premiered).getFullYear()}</h4><br/>
                              <h4>Rating: {Searchsingle?.rating?.average}/10</h4><br/>
                              <h4>Movie Description:</h4>
                              {Searchsingle?.summary}

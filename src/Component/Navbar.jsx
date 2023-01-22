@@ -25,7 +25,7 @@ export const Navbar = (() => {
   const MoviesSearch = async (e) => {
     try {
 
-      let api = `http://api.tvmaze.com/search/shows?q=${Searchtext}`;
+      let api = `https://api.tvmaze.com/search/shows?q=${Searchtext}`;
       let res = await fetch(api);
       let data = await res.json();
       let SearchArr = []

@@ -12,11 +12,12 @@ export const Home = (() => {
     const [MysterySet, MysteryUpdate] = useState([]);
     const [ThrillerSet, ThrillerUpdate] = useState([]);
     const [ActionSet, ActionUpdate] = useState([]);
-
+const [loading,setLoading]=useState(true);
     const DataFetching = async () => {
         try {
-            const res = await fetch(`https://api.tvmaze.com/shows?page=1`);
+            const res = await fetch(`https://api.tvmaze.com/shows?page=2`);
             const movies = await res.json();
+              setLoading(false);
             var ComedyArr = [];
             var FamilyArr = [];
             var CrimeArr = [];
@@ -34,7 +35,7 @@ export const Home = (() => {
             movies.map((elem) => {
 
                 if (elem.genres.includes("Family")) {
-                    ;
+                    
                     FamilyArr.push(elem);
                 }
 
@@ -43,7 +44,7 @@ export const Home = (() => {
             movies.map((elem) => {
 
                 if (elem.genres.includes("Crime")) {
-                    ;
+                    
                     CrimeArr.push(elem);
                 }
 
@@ -52,7 +53,7 @@ export const Home = (() => {
             movies.map((elem) => {
 
                 if (elem.genres.includes("Mystery")) {
-                    ;
+                    
                     MysteryArr.push(elem);
                 }
 
@@ -61,7 +62,7 @@ export const Home = (() => {
             movies.map((elem) => {
 
                 if (elem.genres.includes("Thriller")) {
-                    ;
+                    
                     ThrillerArr.push(elem);
                 }
 
@@ -70,7 +71,7 @@ export const Home = (() => {
             movies.map((elem) => {
 
                 if (elem.genres.includes("Action")) {
-                    ;
+                    
                     ActionArr.push(elem);
                 }
 
@@ -99,7 +100,8 @@ export const Home = (() => {
         <br></br>
             <h1 style={{ marginLeft: "10px"}}>Comedy</h1>
            
-            <div style={{ display: "flex", width: "100%", overflow:"scroll"}}>
+            {loading && <h4>loading.....</h4>}
+           {!loading && <div style={{ display: "flex", width: "100%", overflow:"scroll"}}>
                 {
                     ComedySet?.map((movie, ind) => (
                       
@@ -115,8 +117,7 @@ export const Home = (() => {
                         </Link>
                     ))
                 }
-            </div>
-
+            </div>}
 
             <h1 style={{ marginLeft: "10px" }}>Family</h1>
         
