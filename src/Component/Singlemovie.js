@@ -12,7 +12,7 @@ export const Singlemovie=(()=>{
     const Datarenderr=async()=>{
        
         try{
-            let api = `http://api.tvmaze.com/shows/${id}`;
+            let api = `https://api.tvmaze.com/shows/${id}`;
             let res = await fetch(api);
             let data = await res.json();
            
